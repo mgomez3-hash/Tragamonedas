@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="SlotMachineApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Máquina Tragamonedas - Evaluación Final</title>
+    <link rel="stylesheet" href="css/style.css">
+    </head>
+<body ng-controller="SlotMachineController">
+
+    <div id="slot-machine-container">
+        <h1 style="color: white;">Máquina Tragamonedas 🎰</h1>
+
+        <div id="reels-board">
+            <div class="reel" ng-repeat="reel in reels track by $index">
+                <img ng-src="{{ reel.getImagen() }}" alt="{{ reel.getName() }}">
+            </div>
+        </div>
+
+        <div id="result-message" ng-class="resultClass">
+            {{ resultText }}
+        </div>
+
+        <button class="spin-button" ng-click="spin()" ng-disabled="isSpinning">
+            {{ isSpinning ? 'Girando...' : '¡GIRAR!' }}
+        </button>
+
+    </div>
+
+    <table id="stats-table">
+        <caption>Estadísticas de Juego</caption>
+        <thead>
+            <tr>
+                <th>Tipo de Resultado</th>
+                <th>Veces Ocurridas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>**Ganadas (3 Iguales)** 🥳</td>
+                <td>{{ stats.wins }}</td>
+            </tr>
+            <tr>
+                <td>**Casi (2 Iguales)**</td>
+                <td>{{ stats.nearMisses }}</td>
+            </tr>
+            <tr>
+                <td>**Pérdidas (Diferentes)** 😞</td>
+                <td>{{ stats.losses }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="js/Symbol.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+</html>

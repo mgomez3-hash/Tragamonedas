@@ -1,0 +1,135 @@
+/* --- Base y Contenedor Principal (Similar a la Mesa de Cartas) --- */
+html {
+    background: #333; /* Fondo oscuro simple */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+#slot-machine-container {
+    padding: 30px;
+    margin: 20px auto;
+    border: 1px solid #5c5c5c;
+    border-top: 1px solid #999;
+    border-radius: 5px;
+    background: rgba(0,0,0,0.8);
+    box-shadow: 0px 3px 15px 2px rgba(0,0,0,1);
+    /* Fondo con textura similar al ejemplo */
+    background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.05) 25%, transparent 25%, transparent 50%);
+    background-size: 5px 5px;
+}
+
+/* --- 1. Mostrar los Carretes (Centrado) --- */
+#reels-board {
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    gap: 15px; /* Espacio entre carretes */
+    margin-bottom: 20px;
+}
+
+.reel {
+    width: 120px;
+    height: 120px;
+    border: 5px solid #ffcc00; /* Borde de máquina tragamonedas */
+    background-color: #eee;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.8), inset 0 0 10px #000; /* Sombra y brillo */
+    
+    /* Centrado vertical y horizontal de la imagen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Asegura que la imagen no se salga */
+}
+
+.reel img {
+    max-width: 90%;
+    max-height: 90%;
+    /* Efecto de 'desenfoque' ligero durante el giro para animación (opcional) */
+    transition: transform 0.3s ease-out; 
+}
+
+
+/* --- 2. Botón para Girar (Estilizado) --- */
+.spin-button {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    background-color: #cc0000; /* Rojo vibrante */
+    border: 3px solid #ffaa00;
+    border-radius: 10px;
+    padding: 10px 30px;
+    cursor: pointer;
+    box-shadow: 0 5px 0 #990000, 0 10px 20px rgba(0,0,0,0.5);
+    transition: all 0.1s;
+}
+
+.spin-button:active {
+    box-shadow: 0 2px 0 #990000, 0 5px 10px rgba(0,0,0,0.5);
+    transform: translateY(3px); /* Efecto de 'presión' */
+}
+
+.spin-button:disabled {
+    background-color: #444;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* --- 3. Resultado (Texto y Colores) --- */
+#result-message {
+    font-size: 2.2em;
+    font-weight: bold;
+    margin: 20px 0;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 4px #000;
+}
+
+.win {
+    background-color: #28a745; /* Verde */
+}
+
+.near-miss {
+    background-color: #ffc107; /* Amarillo/Naranja */
+    color: #333;
+}
+
+.loss {
+    background-color: #dc3545; /* Rojo */
+}
+
+.info {
+    background-color: #007bff; /* Azul */
+}
+
+.spinning {
+     background-color: #6c757d; /* Gris */
+}
+
+/* --- 4. Contador de Estadísticas (Tabla) --- */
+#stats-table {
+    margin-top: 20px;
+    width: 80%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+#stats-table th, #stats-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+#stats-table th {
+    background-color: #f8f9fa;
+    color: #333;
+}
