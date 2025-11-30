@@ -8,7 +8,7 @@
 <body ng-controller="SlotMachineController">
 
     <div id="slot-machine-container">
-        <h1 style="color: white;">Máquina Tragamonedas 🎰</h1>
+        <h1 style="color: white;">Máquina Tragamonedas</h1>
 
         <div id="reels-board">
             <div class="reel" ng-repeat="reel in reels track by $index">
@@ -21,7 +21,7 @@
         </div>
 
         <button class="spin-button" ng-click="spin()" ng-disabled="isSpinning">
-            {{ isSpinning ? 'Girando...' : '¡GIRAR!' }}
+            {{ isSpinning ? 'Girando...' : 'GIRAR' }}
         </button>
 
     </div>
@@ -36,15 +36,15 @@
         </thead>
         <tbody>
             <tr>
-                <td>**Ganadas (3 Iguales)** 🥳</td>
+                <td>Ganadas (3 Iguales)</td>
                 <td>{{ stats.wins }}</td>
             </tr>
             <tr>
-                <td>**Casi (2 Iguales)**</td>
+                <td>Casi (2 Iguales)</td>
                 <td>{{ stats.nearMisses }}</td>
             </tr>
             <tr>
-                <td>**Pérdidas (Diferentes)** 😞</td>
+                <td>Pérdidas (Diferentes)</td>
                 <td>{{ stats.losses }}</td>
             </tr>
         </tbody>
