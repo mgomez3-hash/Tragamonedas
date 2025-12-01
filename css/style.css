@@ -131,3 +131,17 @@ body {
     background-color: #f8f9fa;
     color: #333;
 }
+
+#stats-table caption {
+    background-color: #ccc;
+    padding: 12px 0;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    caption-side: top;
+    color: #333;
+    border: 1px solid #ccc;  
+    border-bottom: none;      
+}
+
+
